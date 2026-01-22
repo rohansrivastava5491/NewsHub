@@ -3,6 +3,8 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 
+const authRoutes = require("./routes/authRoutes");
+//const newsRoutes = require("./routes/newsRoutes");
 
 const app = express();
 
@@ -13,6 +15,9 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan("dev"));
 
+/* -------------------- Routes -------------------- */
+app.use("/api/auth", authRoutes);
+//app.use("/api", newsRoutes);
 
 
 /* -------------------- Health Check -------------------- */
